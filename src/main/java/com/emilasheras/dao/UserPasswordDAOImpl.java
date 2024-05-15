@@ -1,0 +1,61 @@
+package com.emilasheras.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.emilasheras.UserPassword;
+
+import java.util.List;
+
+public class UserPasswordDAOImpl implements UserPasswordDAO {
+    private SessionFactory sessionFactory;
+
+    public UserPasswordDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    @Override
+    public void save(UserPassword userPassword) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(userPassword);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    @Override
+    public UserPassword findByUsername(String username) {
+        Session session = sessionFactory.openSession();
+        UserPassword userPassword = session.createQuery("FROM UserPassword WHERE username = :username", UserPassword.class)
+                .setParameter("username", username)
+                .uniqueResult();
+        session.close();
+        return userPassword;
+    }
+
+    @Override
+    public List<UserPassword> findAll() {
+        Session session = sessionFactory.openSession();
+        List<UserPassword> userPasswords = session.createQuery("FROM UserPassword", UserPassword.class).list();
+        session.close();
+        return userPasswords;
+    }
+
+    @Override
+    public void update(UserPassword userPassword) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(userPassword);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    @Override
+    public void delete(UserPassword userPassword) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(userPassword);
+        session.getTransaction().commit();
+        session.close();
+    }
+}
