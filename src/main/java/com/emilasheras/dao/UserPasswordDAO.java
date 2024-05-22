@@ -2,7 +2,7 @@ package com.emilasheras.dao;
 
 import java.util.List;
 
-import com.emilasheras.UserPassword;
+import com.emilasheras.modules.user.models.UserPassword;
 
 public interface UserPasswordDAO {
     void save(UserPassword userPassword);

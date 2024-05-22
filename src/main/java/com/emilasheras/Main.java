@@ -6,6 +6,8 @@ import org.hibernate.cfg.Configuration;
 
 import com.emilasheras.dao.UserPasswordDAO;
 import com.emilasheras.dao.UserPasswordDAOImpl;
+import com.emilasheras.modules.user.components.PasswordUtil;
+import com.emilasheras.modules.user.models.UserPassword;
 
 /*
  * El proyecto consiste en desarrollar una aplicación de consola en Java que funcione 
@@ -21,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         testDB();
-        addTestUser();
+        // addTestUser();
     }
     private static void testDB() {
         // Create a SessionFactory from hibernate.cfg.xml

@@ -17,6 +17,11 @@ services:
 
     volumes:
       - mysql_data:/var/lib/mysql
-
+  
+  # other potential services:
+  # Redis
+  # This java app but builded in a web type of docker app
+  # web frontend dockerized app
+  # 
 volumes:
   mysql_data:

@@ -1,10 +1,8 @@
-package com.emilasheras;
+package com.emilasheras.modules.user.models;
 
 import jakarta.persistence.metamodel.SingularAttribute;
 import jakarta.persistence.metamodel.StaticMetamodel;
 import javax.annotation.processing.Generated;
-
-import com.emilasheras.modules.user.models.UserPassword;
 
 @Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
 @StaticMetamodel(UserPassword.class)

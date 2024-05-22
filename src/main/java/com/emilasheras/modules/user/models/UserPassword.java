@@ -1,4 +1,4 @@
-package com.emilasheras;
+package com.emilasheras.modules.user.models;
 
 import jakarta.persistence.*;
 

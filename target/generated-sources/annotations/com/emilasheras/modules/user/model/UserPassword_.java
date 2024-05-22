@@ -1,4 +1,4 @@
-package com.emilasheras;
+package com.emilasheras.modules.user.model;
 
 import jakarta.persistence.metamodel.SingularAttribute;
 import jakarta.persistence.metamodel.StaticMetamodel;

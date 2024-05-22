@@ -12,7 +12,7 @@
         <!-- see: hibernate `validate`, `update`, `create`, `create-drop` -->
 
         <!-- Mapping entity class -->
-        <mapping class="com.emilasheras.UserPassword"/>
+        <mapping class="com.emilasheras.modules.user.models.UserPassword"/>
 
         <!-- ... other configs -->
     </session-factory>

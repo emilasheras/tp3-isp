@@ -3,7 +3,7 @@ package com.emilasheras.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.emilasheras.UserPassword;
+import com.emilasheras.modules.user.models.UserPassword;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class UserPasswordDAOImpl implements UserPasswordDAO {
     public void save(UserPassword userPassword) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(userPassword);
+        session.persist(userPassword);
         session.getTransaction().commit();
         session.close();
     }
@@ -45,7 +45,7 @@ public class UserPasswordDAOImpl implements UserPasswordDAO {
     public void update(UserPassword userPassword) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.update(userPassword);
+        session.merge(userPassword);
         session.getTransaction().commit();
         session.close();
     }
@@ -54,7 +54,7 @@ public class UserPasswordDAOImpl implements UserPasswordDAO {
     public void delete(UserPassword userPassword) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.delete(userPassword);
+        session.remove(userPassword);
         session.getTransaction().commit();
         session.close();
     }

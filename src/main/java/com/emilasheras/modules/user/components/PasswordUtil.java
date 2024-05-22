@@ -1,4 +1,4 @@
-package com.emilasheras;
+package com.emilasheras.modules.user.components;
 
 import java.security.MessageDigest;
 import java.security.SecureRandom;
