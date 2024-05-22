@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.emilasheras.dao.UserPasswordDAO;
-import com.emilasheras.dao.UserPasswordDAOImpl;
+import com.emilasheras.modules.dao.IUserPasswordDAO;
+import com.emilasheras.modules.dao.UserPasswordDAOImpl;
 import com.emilasheras.modules.user.components.PasswordUtil;
 import com.emilasheras.modules.user.models.UserPassword;
 
@@ -42,7 +42,7 @@ public class Main {
     private static void addTestUser() {
         try {
             SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-            UserPasswordDAO userPasswordDAO = new UserPasswordDAOImpl(factory);
+            IUserPasswordDAO userPasswordDAO = new UserPasswordDAOImpl(factory);
 
             String username = "testUser";
             String salt = PasswordUtil.generateSalt();

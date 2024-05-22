@@ -1,4 +1,4 @@
-package com.emilasheras.dao;
+package com.emilasheras.modules.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,7 +7,7 @@ import com.emilasheras.modules.user.models.UserPassword;
 
 import java.util.List;
 
-public class UserPasswordDAOImpl implements UserPasswordDAO {
+public class UserPasswordDAOImpl implements IUserPasswordDAO {
     private SessionFactory sessionFactory;
 
     public UserPasswordDAOImpl(SessionFactory sessionFactory) {
