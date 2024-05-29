@@ -19,7 +19,7 @@ public class UserPassword extends CModel {
     
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user; // Assuming you will create a User entity later
+    private User user;
 
     public String getPassword() {
         return password;

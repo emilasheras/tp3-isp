@@ -13,7 +13,7 @@ public class PasswordExpert {
     }
 
     public static String hashPassword(String password, String salt) throws Exception {
-        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256"); // todo: cambiar por un algoritmo menos berreta
         messageDigest.update(Base64.getDecoder().decode(salt));
         byte[] hashedPassword = messageDigest.digest(password.getBytes());
         return Base64.getEncoder().encodeToString(hashedPassword);

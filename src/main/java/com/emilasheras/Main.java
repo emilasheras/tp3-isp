@@ -18,30 +18,32 @@ import com.emilasheras.modules.user.models.User;
 
 public class Main {
     public static void main(String[] args) {
+        // 🧪 debugging
         System.out.println("✅ Hello world!");
         testDB();
-        testAddUser();
-        // addTestUser(); 
+
+        // Intentar persistir un usuario en DB y luego agregarle una password + salt
+        User user = testAddUser();
+        System.out.println("\n\n\n");
+        System.out.println("id: "+user.getId()+" - username: "+user.getUsername());
+        System.out.println("\n\n\n");
+    
+        // todo: implementar la funcion testAddPasswordToUser(user);
+        //testAddPasswordToUser(user)
     }
 
-    private static void testAddUser(){
+    private static User testAddUser(){
         try{
-            SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-            Session session = factory.openSession();
-
-            session.beginTransaction();
-
             // Crear un usuario
             User user = new User();
-            user.setUsername("usuario_prueba");
-
-            // Persistir el usuario
-            session.save(user);
-            session.getTransaction().commit();
+            user.setUsername("usuario_prueba111");
+            user.save();
+            return user;
         }catch(Exception e){
             System.out.println("\n\n\nAN ERROR OCCURRED WHILE ADDING A USER TO THE DATABASE");
             e.printStackTrace();
         }
+        return null;
     }
 
     
