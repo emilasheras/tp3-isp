@@ -12,7 +12,7 @@ import com.emilasheras.components.models.CModel;
 @Table(name = "user")
 public class User extends CModel {
 
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(name = "username", nullable = false)
     private String username;
 
     @OneToMany(mappedBy = "user")
