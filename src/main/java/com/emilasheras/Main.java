@@ -4,11 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.emilasheras.modules.dao.IUserPasswordDAO;
-import com.emilasheras.modules.dao.UserPasswordDAOImpl;
-import com.emilasheras.modules.user.components.PasswordUtil;
-import com.emilasheras.modules.user.models.UserPassword;
-
 /*
  * El proyecto consiste en desarrollar una aplicación de consola en Java que funcione 
  * como un gestor de contraseñas local. La aplicación almacenará contraseñas hasheadas 
@@ -23,8 +18,16 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         testDB();
-        // addTestUser();
+        testAddUser();
+        // addTestUser(); 
     }
+
+    private static void testAddUser(){
+
+    }
+
+    
+
     private static void testDB() {
         // Create a SessionFactory from hibernate.cfg.xml
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -38,28 +41,29 @@ public class Main {
         session.close();
         factory.close();
     }
-    
-    private static void addTestUser() {
-        try {
-            SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-            IUserPasswordDAO userPasswordDAO = new UserPasswordDAOImpl(factory);
 
-            String username = "testUser";
-            String salt = PasswordUtil.generateSalt();
-            String hashedPassword = PasswordUtil.hashPassword("testPassword", salt);
+    // Old implementation with just hibernate
+    // private static void addTestUser() {
+    //     try {
+    //         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    //         IUserPasswordDAO userPasswordDAO = new UserPasswordDAOImpl(factory);
 
-            UserPassword userPassword = new UserPassword();
-            userPassword.setUsername(username);
-            userPassword.setPasswordHash(hashedPassword);
-            userPassword.setSalt(salt);
+    //         String username = "testUser";
+    //         String salt = PasswordExpert.generateSalt();
+    //         String hashedPassword = PasswordExpert.hashPassword("testPassword", salt);
 
-            userPasswordDAO.save(userPassword);
+    //         UserPasswordBackup userPassword = new UserPasswordBackup();
+    //         userPassword.setUsername(username);
+    //         userPassword.setPasswordHash(hashedPassword);
+    //         userPassword.setSalt(salt);
 
-            System.out.println("User saved successfully!");
+    //         userPasswordDAO.save(userPassword);
 
-            factory.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    //         System.out.println("User saved successfully!");
+
+    //         factory.close();
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 }

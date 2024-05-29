@@ -13,6 +13,7 @@
 
         <!-- Mapping entity class -->
         <mapping class="com.emilasheras.modules.user.models.UserPassword"/>
+        <mapping class="com.emilasheras.modules.user.models.User"/>
 
         <!-- ... other configs -->
     </session-factory>

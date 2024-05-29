@@ -1,9 +1,9 @@
-package com.emilasheras.modules.dao;
+package com.emilasheras.modules.user.components;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.emilasheras.modules.user.models.UserPassword;
+import com.emilasheras.modules.user.models.UserPasswordBackup;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class UserPasswordDAOImpl implements IUserPasswordDAO {
     }
 
     @Override
-    public void save(UserPassword userPassword) {
+    public void save(UserPasswordBackup userPassword) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.persist(userPassword);
@@ -24,9 +24,9 @@ public class UserPasswordDAOImpl implements IUserPasswordDAO {
     }
 
     @Override
-    public UserPassword findByUsername(String username) {
+    public UserPasswordBackup findByUsername(String username) {
         Session session = sessionFactory.openSession();
-        UserPassword userPassword = session.createQuery("FROM UserPassword WHERE username = :username", UserPassword.class)
+        UserPasswordBackup userPassword = session.createQuery("FROM UserPassword WHERE username = :username", UserPasswordBackup.class)
                 .setParameter("username", username)
                 .uniqueResult();
         session.close();
@@ -34,15 +34,15 @@ public class UserPasswordDAOImpl implements IUserPasswordDAO {
     }
 
     @Override
-    public List<UserPassword> findAll() {
+    public List<UserPasswordBackup> findAll() {
         Session session = sessionFactory.openSession();
-        List<UserPassword> userPasswords = session.createQuery("FROM UserPassword", UserPassword.class).list();
+        List<UserPasswordBackup> userPasswords = session.createQuery("FROM UserPassword", UserPasswordBackup.class).list();
         session.close();
         return userPasswords;
     }
 
     @Override
-    public void update(UserPassword userPassword) {
+    public void update(UserPasswordBackup userPassword) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.merge(userPassword);
@@ -51,7 +51,7 @@ public class UserPasswordDAOImpl implements IUserPasswordDAO {
     }
 
     @Override
-    public void delete(UserPassword userPassword) {
+    public void delete(UserPasswordBackup userPassword) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.remove(userPassword);

@@ -6,17 +6,15 @@ import javax.annotation.processing.Generated;
 
 @Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
 @StaticMetamodel(UserPassword.class)
-public abstract class UserPassword_ {
+public abstract class UserPassword_ extends com.emilasheras.components.models.CModel_ {
 
+	public static volatile SingularAttribute<UserPassword, String> password;
 	public static volatile SingularAttribute<UserPassword, String> salt;
-	public static volatile SingularAttribute<UserPassword, Integer> id;
-	public static volatile SingularAttribute<UserPassword, String> passwordHash;
-	public static volatile SingularAttribute<UserPassword, String> username;
+	public static volatile SingularAttribute<UserPassword, User> user;
 
+	public static final String PASSWORD = "password";
 	public static final String SALT = "salt";
-	public static final String ID = "id";
-	public static final String PASSWORD_HASH = "passwordHash";
-	public static final String USERNAME = "username";
+	public static final String USER = "user";
 
 }
 

@@ -4,16 +4,16 @@ import jakarta.persistence.metamodel.SingularAttribute;
 import jakarta.persistence.metamodel.StaticMetamodel;
 import javax.annotation.processing.Generated;
 
-import com.emilasheras.modules.user.models.UserPassword;
+import com.emilasheras.modules.user.models.UserPasswordBackup;
 
 @Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
-@StaticMetamodel(UserPassword.class)
+@StaticMetamodel(UserPasswordBackup.class)
 public abstract class UserPassword_ {
 
-	public static volatile SingularAttribute<UserPassword, String> salt;
-	public static volatile SingularAttribute<UserPassword, Integer> id;
-	public static volatile SingularAttribute<UserPassword, String> passwordHash;
-	public static volatile SingularAttribute<UserPassword, String> username;
+	public static volatile SingularAttribute<UserPasswordBackup, String> salt;
+	public static volatile SingularAttribute<UserPasswordBackup, Integer> id;
+	public static volatile SingularAttribute<UserPasswordBackup, String> passwordHash;
+	public static volatile SingularAttribute<UserPasswordBackup, String> username;
 
 	public static final String SALT = "salt";
 	public static final String ID = "id";

@@ -1,46 +1,32 @@
 package com.emilasheras.modules.user.models;
 
-import jakarta.persistence.*;
+import com.emilasheras.components.models.CModel;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
-@Entity // <- this class is an entity and should be mapped to a database table
-@Table(name = "user_password") // <- Specifies the table name in the database
-public class UserPassword {
-    @Id // <- Primary key
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // <- Auto-increment / auto-generated value
-    private int id;
-
-    @Column(nullable = false)
-    private String username;
-
-    @Column(nullable = false)
-    private String passwordHash;
-
-    @Column(nullable = false)
+@Entity
+@Table(name = "user_password")
+public class UserPassword extends CModel {
+    
+    @Column(name = "password", nullable = false)
+    private String password;
+    
+    @Column(name = "salt", nullable = false)
     private String salt;
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user; // Assuming you will create a User entity later
 
-    // Getters and Setters
-    public int getId() {
-        return id;
+    public String getPassword() {
+        return password;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getSalt() {
@@ -49,5 +35,13 @@ public class UserPassword {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
