@@ -1,5 +1,6 @@
 package com.emilasheras.modules.user.models;
 
+import com.emilasheras.modules.user_password.models.UserPassword;
 import jakarta.persistence.metamodel.ListAttribute;
 import jakarta.persistence.metamodel.SingularAttribute;
 import jakarta.persistence.metamodel.StaticMetamodel;

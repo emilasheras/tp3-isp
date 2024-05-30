@@ -1,10 +1,10 @@
-package com.emilasheras.modules.user.components;
+package com.emilasheras.modules.user_password.components;
 
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-public class PasswordExpert {
+public class UserPasswordExpert {
     public static String generateSalt() {
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];

@@ -7,6 +7,7 @@ import jakarta.persistence.OneToMany;
 import java.util.List;
 
 import com.emilasheras.components.models.CModel;
+import com.emilasheras.modules.user_password.models.UserPassword;
 
 @Entity
 @Table(name = "user")

@@ -1,6 +1,8 @@
-package com.emilasheras.modules.user.models;
+package com.emilasheras.modules.user_password.models;
 
 import com.emilasheras.components.models.CModel;
+import com.emilasheras.modules.user.models.User;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;

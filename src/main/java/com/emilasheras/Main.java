@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.emilasheras.modules.user.models.User;
+import com.emilasheras.modules.user_password.components.UserPasswordExpert;
+import com.emilasheras.modules.user_password.models.UserPassword;
 
 /*
  * El proyecto consiste en desarrollar una aplicación de consola en Java que funcione 
@@ -25,11 +27,34 @@ public class Main {
         // Intentar persistir un usuario en DB y luego agregarle una password + salt
         User user = testAddUser();
         System.out.println("\n\n\n");
-        System.out.println("id: "+user.getId()+" - username: "+user.getUsername());
-        System.out.println("\n\n\n");
+        System.out.println("ADDED: id: "+user.getId()+" - username: "+user.getUsername());
     
         // todo: implementar la funcion testAddPasswordToUser(user);
-        //testAddPasswordToUser(user)
+        UserPassword password = testAddPasswordToUser(user);
+        System.out.println("\n");
+        System.out.println("ADDED: password hash: "+password.getPassword()+" - salt: "+password.getSalt());
+        System.out.println("\n\n\n");
+    }
+
+    private static UserPassword testAddPasswordToUser(User user){
+        try {
+            // Create a secure password with the input pass from the user
+            final String USER_PASSWORD_INPUT = "testPassword";
+            String salt = UserPasswordExpert.generateSalt();
+            String hashedPassword = UserPasswordExpert.hashPassword(USER_PASSWORD_INPUT, salt);
+            
+            // Initialize a user_password model and relate it to the original user model
+            UserPassword password = new UserPassword();
+            password.setUser(user);
+            password.setPassword(hashedPassword);
+            password.setSalt(salt);
+            password.save();
+
+            return password;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private static User testAddUser(){
@@ -45,8 +70,6 @@ public class Main {
         }
         return null;
     }
-
-    
 
     private static void testDB() {
         // Create a SessionFactory from hibernate.cfg.xml
