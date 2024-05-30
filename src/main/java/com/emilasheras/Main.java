@@ -84,29 +84,4 @@ public class Main {
         session.close();
         factory.close();
     }
-
-    // Old implementation with just hibernate
-    // private static void addTestUser() {
-    //     try {
-    //         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-    //         IUserPasswordDAO userPasswordDAO = new UserPasswordDAOImpl(factory);
-
-    //         String username = "testUser";
-    //         String salt = PasswordExpert.generateSalt();
-    //         String hashedPassword = PasswordExpert.hashPassword("testPassword", salt);
-
-    //         UserPasswordBackup userPassword = new UserPasswordBackup();
-    //         userPassword.setUsername(username);
-    //         userPassword.setPasswordHash(hashedPassword);
-    //         userPassword.setSalt(salt);
-
-    //         userPasswordDAO.save(userPassword);
-
-    //         System.out.println("User saved successfully!");
-
-    //         factory.close();
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-    // }
 }
