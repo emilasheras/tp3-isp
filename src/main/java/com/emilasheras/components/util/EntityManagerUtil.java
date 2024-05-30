@@ -4,7 +4,6 @@ import org.hibernate.cfg.Configuration;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
 /**
  * Static Initializer: Utilizamos un inicializador estático para crear una única instancia
